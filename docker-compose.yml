@@ -1,0 +1,29 @@
+version : "3"
+services:
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - "./mysql:/var/lib/mysql"
+      - "./mysql_config/my.cnf:/etc/mysql/conf.d/my.cnf"
+    environment:
+      - MYSQL_ROOT_PASSWORD=pwd
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pwd
+#
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    depends_on:
+#      - db
+#    environment:
+#      - PMA_ARBITRARY=1
+#      - PMA_HOSTS=db
+#      - PMA_USER=root
+#      - PMA_PASSWORD=pwd
+#    ports:
+#      - "3000:80"
+#    volumes:
+#      - ./docker/phpmyadmin/sessions:/sessions
