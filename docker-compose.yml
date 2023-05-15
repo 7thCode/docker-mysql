@@ -1,4 +1,4 @@
-version : "3"
+version : "3.1"
 services:
   db:
     container_name: MYSQL   
@@ -7,13 +7,16 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - "./mysql:/var/lib/mysql"
-      - "./mysql_config/my.cnf:/etc/mysql/conf.d/my.cnf"
+      - mysql_data:/var/lib/mysql
+      - ./mysql_config/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       - MYSQL_ROOT_PASSWORD=pwd
       - MYSQL_DATABASE=test
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pwd
+volumes:
+  mysql_data:
+
 #
 #  phpmyadmin:
 #    image: phpmyadmin/phpmyadmin
