@@ -16,18 +16,3 @@ services:
       - MYSQL_PASSWORD=pwd
 volumes:
   mysql_data:
-
-#
-#  phpmyadmin:
-#    image: phpmyadmin/phpmyadmin
-#    depends_on:
-#      - db
-#    environment:
-#      - PMA_ARBITRARY=1
-#      - PMA_HOSTS=db
-#      - PMA_USER=root
-#      - PMA_PASSWORD=pwd
-#    ports:
-#      - "3000:80"
-#    volumes:
-#      - ./docker/phpmyadmin/sessions:/sessions
